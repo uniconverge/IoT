@@ -18,7 +18,7 @@ import { CDetailsComponent } from './crud/c-details/c-details.component';
 import { CStartComponent } from './crud/c-start/c-start.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphComponent } from './crud/graph/graph.component';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DatastorageService } from '../../shared/datastorage.service';
+import { DatastorageService } from '../../datastorage.service';
 import { Device } from '../crud.model';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';

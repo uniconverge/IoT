@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import {Device} from './crud.model';
 import { Subject } from 'rxjs';
-import { DatastorageService } from '../shared/datastorage.service';
+import { DatastorageService } from '../datastorage.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

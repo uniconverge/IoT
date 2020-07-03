@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CrudService } from '../crud.service';
 import { Device } from '../crud.model';
-import { DatastorageService } from 'src/app/shared/datastorage.service';
+import { DatastorageService } from 'src/app/datastorage.service';
 import { ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 

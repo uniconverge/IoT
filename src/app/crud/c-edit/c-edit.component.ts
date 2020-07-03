@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControlName, Validators, FormControl } from '@angular/forms';
 import { CrudService } from '../crud.service';
-import { DatastorageService } from 'src/app/shared/datastorage.service';
+import { DatastorageService } from 'src/app/datastorage.service';
 import { Device } from '../crud.model';
 import { variable } from '@angular/compiler/src/output/output_ast';
 

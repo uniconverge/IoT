@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DatastorageService } from '../shared/datastorage.service';
+import { DatastorageService } from '../datastorage.service';
 import { Label, Color, SingleDataSet } from 'ng2-charts';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ChartType } from 'chart.js';

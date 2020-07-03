@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatastorageService } from './shared/datastorage.service';
+import { DatastorageService } from './datastorage.service';
 import { Device } from './crud/crud.model';
 import { CrudService } from './crud/crud.service';
 

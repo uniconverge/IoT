@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 
 import { CrudService } from './crud.service';
-import { DatastorageService } from '../shared/datastorage.service';
+import { DatastorageService } from '../datastorage.service';
 import { Device } from './crud.model';
 
 @Injectable({ providedIn: 'root' })
