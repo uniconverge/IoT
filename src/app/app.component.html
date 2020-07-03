@@ -1,0 +1,6 @@
+
+<app-sidenav></app-sidenav>
+<div class="container-fluid  rgba-blue-grey-slight  " style="height:1000px">
+  <router-outlet *ngIf="okay"></router-outlet>
+  <app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+</div>

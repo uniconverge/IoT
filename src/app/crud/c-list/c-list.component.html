@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col">
+        <a mdbBtn type="button" color="default" mdbWavesEffect role="button" style="margin-left: 32%;" (click)="onAddDevice()">Add Device</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <app-c-items
+        *ngFor="let i=index;let deviceEl of devices;"
+        [device]="deviceEl"
+        [index]="i"
+        ></app-c-items>
+    </div>
+</div>

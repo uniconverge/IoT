@@ -1,0 +1,109 @@
+
+<div class="card .z-depth-1-half" style="border-radius: 20pt;margin-right: 0px;margin-left: 0px;margin-top: 5px;">
+
+
+    <div class="card-body" style="margin-top: 0px;" >
+
+        <!-- Form -->
+        <form [formGroup]="crudForm" (ngSubmit)="onSubmit()" class="text-center" style="color: #757575;">
+            <div class="row" style="margin-top: 0px;">
+                <div class="col-6">
+                    <button mdbBtn color="success" mdbWavesEffect type="submit"
+                     [disabled]="!crudForm.valid">
+                    <strong>Save</strong>
+                </button>
+                </div>
+                <div class="col-6">
+                    <button  mdbBtn color="warning" mdbWavesEffect type="submit"
+                     (click)="onCancel()">
+                    <strong>Cancel</strong>
+                </button>  
+                </div> 
+            </div>      
+            <div class="row px-lg-3">
+                <label >Name</label>
+                <input type="text"
+                class="form-control"
+                formControlName="name">  
+            </div>
+            <div class="row px-lg-3">
+                <label >Model No</label>
+                <input type="text"
+                class="form-control"
+                formControlName="modelNo"> 
+            </div>
+            <div class="row px-lg-3">
+                <label >Location</label>
+                <input type="text"
+                class="form-control"
+                formControlName="location"> 
+            </div>
+            <div class="form-row px-lg-3">
+                <div class="col">
+                    <div class="row" style="margin-right: 12px;">
+                        <label >Run Time</label>
+                        <input type="number"
+                        class="form-control"
+                        formControlName="runTime"> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <label >Status</label>
+                        <input type="text"
+                        class="form-control"
+                        formControlName="status"> 
+                    </div>
+                </div>
+            </div>
+            <div class="form-row px-lg-3">
+                <div class="col" >
+                    <div class="row" style="margin-right: 12px;">
+                        <label >Temperature</label>
+                        <input type="number"
+                        class="form-control"
+                        formControlName="temperature"> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <label >Humidity</label>
+                        <input type="number"
+                        class="form-control"
+                        formControlName="humidity"> 
+                    </div>
+                </div>
+            </div>
+            <div class="form-row px-lg-3">
+                <div class="col">
+                    <div class="row" style="margin-right: 12px;">
+                        <label >Solar Voltage</label>
+                        <input type="number"
+                        class="form-control"
+                        formControlName="solarVoltage">  
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <label >Battery Voltage</label>
+                        <input type="number"
+                        class="form-control"
+                        formControlName="batteryVoltage"> 
+                    </div>
+                </div>
+            </div>
+            <div class="row px-lg-3">
+                <label >Image Path</label>
+                    <input type="text"
+                    class="form-control"
+                    formControlName="imagePath"
+                    #imagePath> 
+            </div>
+            <div class="row px-lg-3">
+                <div class="col-12">
+                    <img [src]="imagePath.value" alt="" style="max-height: 100px;">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

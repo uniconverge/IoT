@@ -1,0 +1,58 @@
+
+
+<div style="max-height: 450px;margin-top: 10px;">
+    <div class="card card-cascade wider white z-depth-1-half  " style="border-radius: 20pt; border: none;" >
+        <a class="card-header peach-gradient white-text text-center py-4" style="max-height: 25px;width: 100%;" (click)="onGoBack()">
+            <a >Go Back</a>
+          </a>
+        <div class="card-body card-body-cascade text-center pb-0" >
+            <div class="row" >
+                    <canvas  mdbChart style="max-height: 250px;"
+                    [chartType]="chartTypel"
+                    [datasets]="chartDatasetsl1"
+                    [labels]="chartLabelsl"
+                    [colors]="chartColorsl1"
+                    [options]="chartOptionsl"
+                    [legend]="true"
+                    (chartHover)="chartHoveredl($event)"
+                    (chartClick)="chartClickedl($event)">
+                    </canvas>
+                    <canvas mdbChart style="max-height: 250px;"
+                    [chartType]="chartTypel"
+                    [datasets]="chartDatasetsl2"
+                    [labels]="chartLabelsl"
+                    [colors]="chartColorsl2"
+                    [options]="chartOptionsl"
+                    [legend]="true"
+                    (chartHover)="chartHoveredl($event)"
+                    (chartClick)="chartClickedl($event)">
+                    </canvas>
+            </div>
+            <div class="row" >
+                    <canvas mdbChart style="max-height: 250px;"
+                    [chartType]="chartTypel"
+                    [datasets]="chartDatasetsl3"
+                    [labels]="chartLabelsl"
+                    [colors]="chartColorsl3"
+                    [options]="chartOptionsl"
+                    [legend]="true"
+                    (chartHover)="chartHoveredl($event)"
+                    (chartClick)="chartClickedl($event)">
+                     </canvas>
+                    <canvas mdbChart style="max-height: 250px;"
+                    [chartType]="chartTypel"
+                    [datasets]="chartDatasetsl4"
+                    [labels]="chartLabelsl"
+                    [colors]="chartColorsl4"
+                    [options]="chartOptionsl"
+                    [legend]="true"
+                    (chartHover)="chartHoveredl($event)"
+                    (chartClick)="chartClickedl($event)">
+                     </canvas>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+

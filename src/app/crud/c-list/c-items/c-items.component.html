@@ -1,0 +1,23 @@
+<a 
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class=" card list-group-item clearfix hoverable white text-black" style="border:none;margin-top: 5px;">
+  <div class="float-left">
+    <h4 class="list-group-item-heading">{{device.name }}</h4>
+    <p class="list-group-item-text">{{ device.modelNo}}</p>
+  </div>
+  <span class="float-right">
+        <img
+          [src]="device.imagePath"
+          alt="{{device.name}}"
+          class="img-responsive"
+          style="max-height: 50px;">
+      </span>
+     
+</a>
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<div style="max-height: 450px;margin-top: 10px;">
+    
+    <!-- Card Wider -->
+    <div class="card card-cascade wider white z-depth-1-half  " style="border-radius: 20pt; border: none;" >
+      <div class="row" style="padding-left:14px;padding-right: 14px;">
+          <a class="card-header info-color white-text text-center py-4" style="max-height: 25px;width: 50%;" (click)="onEditDevice()">
+            <a >Edit</a>
+          </a>
+          <a class="card-header danger-color white-text text-center py-4" style="max-height: 25px;width: 50%;" (click)="onDeleteDevice()">
+            <a >Delete</a>
+          </a>
+      </div>
+      
+      <div class="row"  >
+       <div class="col-12" style="text-align: center;">
+        <img [src]="device.imagePath" class="img-fluid" alt={{device.name}} style="max-height: 300px;">
+          <!-- <img [src]="device.imagePath" alt={{device.name}} class="img-responsive" > -->
+      </div>
+       
+        <!-- Card image -->
+      
+        <!-- Card content -->
+        <div class="card-body card-body-cascade text-center pb-0" >
+          <h4 class="card-title blue-text"><strong>{{device.name}}</strong></h4>
+          <button type="button" mdbBtn color="secondary" mdbWavesEffect
+          (click)="onChart()">Info</button>
+          <table class="table table-sm table-bordered" style="border:none;">
+            <tbody>
+              <tr>
+                <td colspan="2">Model No:</td>
+                <td colspan="2">{{device.modelNo}}</td>
+              </tr>
+              <tr>
+                <td colspan="2">Location:</td>
+                <td colspan="2">{{device.location}}</td>
+              </tr>
+              <tr>
+                <td>RunTime:</td>
+                <td>{{device.runTime}}</td>
+                <td>Status:</td>
+                <td>{{device.status}}</td>
+              </tr>
+              <tr>
+                <td>Temp:</td>
+                <td>{{device.temperature}}</td>
+                <td>Humidity:</td>
+                <td>{{device.humidity}}</td>
+              </tr>
+              <tr>
+                <td>Solar V</td>
+                <td>{{device.solarVoltage}}</td>
+                <td>Battery V</td>
+                <td>{{device.batteryVoltage}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <div class="row" style="max-height: 200px; " style="font-size: 12px;" >
+            <div class="row" style="width: 100%;">
+              <div class="col-4"><p >Name:       alen</p></div>
+              <div class="col-4"><p>Discription:alen</p></div>
+              <div class="col-4"><p>Locstion:   alen</p></div>
+          </div>
+          <div class="row" style="width: 100%;">
+              <div class="col-4"><p>name:alen</p></div>
+              <div class="col-4"><p>name:alen</p></div>
+              <div class="col-4"><p>name:alen</p></div>
+          </div>
+          <div class="row"  style="width: 100%;">
+              <div class="col-4"><p>name:alen</p></div>
+              <div class="col-4"><p>name:alen</p></div>
+              <div class="col-4"><p>name:alen</p></div>
+          </div>
+          </div> -->
+        </div>
+      
+    </div>
+</div>
