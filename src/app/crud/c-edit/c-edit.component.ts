@@ -23,6 +23,7 @@ export class CEditComponent implements OnInit {
   }
   onSubmit(){
     if(this.editMode){
+      //console.log('edit started')
       this.crudService.updateDevice(this.index,this.crudForm.value)
     }
     else{
@@ -45,7 +46,7 @@ export class CEditComponent implements OnInit {
     let modelNo='';
     let location='';
     let runTime;
-    let status='off';
+    let status='';
     let temperature;
     let humidity;
     let solarVoltage;
@@ -58,11 +59,11 @@ export class CEditComponent implements OnInit {
       modelNo=device.modelNo;
       location=device.location;
       runTime=device.runTime;
-      status=device.status;
-      temperature=device.temperature;
-      humidity=device.humidity;
-      solarVoltage=device.solarVoltage;
-      batteryVoltage=device.batteryVoltage;
+      status=device.status[0];
+      temperature=device.temperature[4];
+      humidity=device.humidity[4];
+      solarVoltage=device.solarVoltage[4];
+      batteryVoltage=device.batteryVoltage[4];
       imagePath=device.imagePath
       _id=device._id
     }
@@ -71,13 +72,13 @@ export class CEditComponent implements OnInit {
       modelNo:new FormControl(modelNo,Validators.required),
       location:new FormControl(location),
       runTime:new FormControl(runTime),
-      status:new FormControl(status),
-      temperature: new FormControl(temperature),
-      humidity:new FormControl(humidity),
-      solarVoltage:new FormControl(solarVoltage),
-      batteryVoltage: new FormControl(batteryVoltage),
-      imagePath:new FormControl(imagePath),
-      _id:new FormControl(_id)
+      // status:new FormControl(status),
+      // temperature: new FormControl(temperature),
+      // humidity:new FormControl(humidity),
+      // solarVoltage:new FormControl(solarVoltage),
+      // batteryVoltage: new FormControl(batteryVoltage),
+       imagePath:new FormControl(imagePath),
+      //_id:new FormControl(_id)
     })
   }
   

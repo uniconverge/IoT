@@ -25,5 +25,5 @@ export class CListComponent implements OnInit {
   onAddDevice(){
     this.router.navigate(['add'],{relativeTo:this.route})
   }
-
+ 
 }

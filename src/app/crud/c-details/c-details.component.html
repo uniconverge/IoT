@@ -1,29 +1,32 @@
-<div style="max-height: 450px;margin-top: 10px;">
+<div style="margin-top: 10px;">
     
     <!-- Card Wider -->
-    <div class="card card-cascade wider white z-depth-1-half  " style="border-radius: 20pt; border: none;" >
+    <div class="card card-cascade wider white z-depth-1-half  " style=" border: none;" >
       <div class="row" style="padding-left:14px;padding-right: 14px;">
-          <a class="card-header info-color white-text text-center py-4" style="max-height: 25px;width: 50%;" (click)="onEditDevice()">
+        <a class="card-header info-color white-text text-center py-4" style="max-height: 25px;width: 33.3%;" (click)="onBack()">
+          <a >Back</a>
+        </a>
+          <a class="card-header  default-color white-text text-center py-4" style="max-height: 25px;width: 33.3%;" (click)="onEditDevice()">
             <a >Edit</a>
           </a>
-          <a class="card-header danger-color white-text text-center py-4" style="max-height: 25px;width: 50%;" (click)="onDeleteDevice()">
+          <a class="card-header danger-color white-text text-center py-4" style="max-height: 25px;width: 33.3%;" (click)="onDeleteDevice()">
             <a >Delete</a>
-          </a>
+          </a> 
       </div>
       
       <div class="row"  >
        <div class="col-12" style="text-align: center;">
-        <img [src]="device.imagePath" class="img-fluid" alt={{device.name}} style="max-height: 300px;">
+        <img [src]="device.imagePath" class="img-fluid" alt={{device.name}} style="max-height: 250px;">
           <!-- <img [src]="device.imagePath" alt={{device.name}} class="img-responsive" > -->
       </div>
        
         <!-- Card image -->
       
         <!-- Card content -->
-        <div class="card-body card-body-cascade text-center pb-0" >
-          <h4 class="card-title blue-text"><strong>{{device.name}}</strong></h4>
-          <button type="button" mdbBtn color="secondary" mdbWavesEffect
-          (click)="onChart()">Info</button>
+        <div class="card-body card-body-cascade text-center" >
+          <h4 class="card-title blue-text" style="font-size: 300%;"><strong>{{device.name}}</strong></h4>
+          <!-- <button type="button" mdbBtn color="secondary" mdbWavesEffect
+          (click)="onChart()" style="margin-bottom: 50px;">Info</button> -->
           <table class="table table-sm table-bordered" style="border:none;">
             <tbody>
               <tr>
@@ -42,15 +45,15 @@
               </tr>
               <tr>
                 <td>Temp:</td>
-                <td>{{device.temperature}}</td>
+                <td>{{device.temperature[0]}}</td>
                 <td>Humidity:</td>
-                <td>{{device.humidity}}</td>
+                <td>{{device.humidity[0]}}</td>
               </tr>
               <tr>
                 <td>Solar V</td>
-                <td>{{device.solarVoltage}}</td>
+                <td>{{device.solarVoltage[0]}}</td>
                 <td>Battery V</td>
-                <td>{{device.batteryVoltage}}</td>
+                <td>{{device.batteryVoltage[0]}}</td>
               </tr>
             </tbody>
           </table>

@@ -11,14 +11,19 @@ import { CrudService } from './crud/crud.service';
 export class AppComponent implements OnInit {
   title = 'iot-dashboard';
   okay:boolean
+  ok:boolean=true
   constructor(private dataStorageService:DatastorageService,private crudService:CrudService){}
   ngOnInit(){
     console.log('inside AC')
+   setInterval(()=>{
     this.dataStorageService.fetchDevices().subscribe(
       (devices:Device[])=>{
         this.okay=true
+        this.ok =this.crudService.ok
+        console.log(this.ok)
         this.crudService.onRefresh(devices)
       }
     )
+   },1000)
   }
 }

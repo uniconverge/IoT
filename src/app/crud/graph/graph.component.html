@@ -1,59 +1,151 @@
-
-
-<div style="max-height: 450px;margin-top: 10px;">
-    this is just a simulation because we dont have access to iot device
-    <div class="card card-cascade wider white z-depth-1-half  " style="border-radius: 20pt; border: none;" >
-        <a class="card-header peach-gradient white-text text-center py-4" style="max-height: 25px;width: 100%;" (click)="onGoBack()">
-            <a >Go Back</a>
-          </a>
-        <div class="card-body card-body-cascade text-center pb-0" >
-            <div class="row" >
-                    <canvas  mdbChart style="max-height: 250px;"
-                    [chartType]="chartTypel"
-                    [datasets]="chartDatasetsl1"
-                    [labels]="chartLabelsl"
-                    [colors]="chartColorsl1"
-                    [options]="chartOptionsl"
-                    [legend]="true"
-                    (chartHover)="chartHoveredl($event)"
-                    (chartClick)="chartClickedl($event)">
-                    </canvas>
-                    <canvas mdbChart style="max-height: 250px;"
-                    [chartType]="chartTypel"
-                    [datasets]="chartDatasetsl2"
-                    [labels]="chartLabelsl"
-                    [colors]="chartColorsl2"
-                    [options]="chartOptionsl"
-                    [legend]="true"
-                    (chartHover)="chartHoveredl($event)"
-                    (chartClick)="chartClickedl($event)">
-                    </canvas>
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div class="div" *ngIf="okay" style="margin-left: 10px;margin-right: 10px;margin-top: 8px;">
+    <div class="row">
+        <a   class="card-header btn-info white-text text-center py-4" style="max-height: 25px;width: 100%;" (click)="onDetails()">
+            <a >Details-</a><a><b><b>{{device.name}}</b></b></a><img src="https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-human-vol-1/60/011_023__point_pointing_finger_hand_click_touch_3-512.png" alt=""
+             style="max-height: 35px;margin-left: 10px;padding-bottom: 8px;">
+        </a>
+    </div>
+    <div class="row" >
+        <div class="card-body clearfix z-depth-1 white text-black" style="border: none;">
+            <div class="float-left" style="width: 65%;">
+                <canvas  mdbChart style="max-height:115px;"
+                [chartType]="chartTypel"
+                [datasets]="chartDatasetsl1"
+                [labels]="chartLabelsl"
+                [colors]="chartColorsl1"
+                [options]="chartOptionsl"
+                [legend]="true"
+                (chartHover)="chartHoveredl($event)"
+                (chartClick)="chartClickedl($event)">
+                </canvas>
             </div>
-            <div class="row" >
-                    <canvas mdbChart style="max-height: 250px;"
-                    [chartType]="chartTypel"
-                    [datasets]="chartDatasetsl3"
-                    [labels]="chartLabelsl"
-                    [colors]="chartColorsl3"
-                    [options]="chartOptionsl"
-                    [legend]="true"
-                    (chartHover)="chartHoveredl($event)"
-                    (chartClick)="chartClickedl($event)">
-                     </canvas>
-                    <canvas mdbChart style="max-height: 250px;"
-                    [chartType]="chartTypel"
-                    [datasets]="chartDatasetsl4"
-                    [labels]="chartLabelsl"
-                    [colors]="chartColorsl4"
-                    [options]="chartOptionsl"
-                    [legend]="true"
-                    (chartHover)="chartHoveredl($event)"
-                    (chartClick)="chartClickedl($event)">
-                     </canvas>
-            
+            <div class="float-right" style="width: 35%;">
+               <div class="row" style="text-align:center;" >
+                    <div class="col-3" style="margin-top:10%;">
+                        <p [ngStyle]="{'font-size.px':fontSize}">Min-Temperature</p>
+                        <p [ngStyle]="{'font-size.px':fontSize}">{{mint}}</p>
+                    </div>
+                    <div class="col-6" >
+                       <div class="list-group-item z-depth-1 "  style="border:none;">
+                           <p  [ngStyle]="{'font-size.px':fontSize}">Temperature</p>
+                           <p [ngStyle]="{'font-size.px':fontSize}" >{{device.temperature[4]}}</p>
+                    </div>
+                    </div>
+                    <div class="col-3" style="border:none;margin-top:10%;">
+                       <p [ngStyle]="{'font-size.px':fontSize}">Max-temperature</p>
+                       <p [ngStyle]="{'font-size.px':fontSize}">{{maxt}}</p>
+                    </div>
+               </div>
             </div>
+        </div>   
+    </div>
+    <div class="row" >
+     <div class="card-body z-depth-1 white text-black" style="border: none;">
+        <div  class="float-left" style="width: 65%;">
+            <canvas mdbChart style="max-height: 115px;"
+            [chartType]="chartTypel"
+            [datasets]="chartDatasetsl2"
+            [labels]="chartLabelsl"
+            [colors]="chartColorsl2"
+            [options]="chartOptionsl"
+            [legend]="true"
+            (chartHover)="chartHoveredl($event)"
+            (chartClick)="chartClickedl($event)">
+            </canvas>
+        </div>
+        <div class="float-right" style="width: 35%;">
+            <div class="row">
+                 <div class="col-3" style="text-align: center;font-size:9px;margin-top:10%">
+                     <p [ngStyle]="{'font-size.px':fontSize}">Min-Humidity</p>
+                     <p [ngStyle]="{'font-size.px':fontSize}">{{minh}}</p>
+                 </div>
+                 <div class="col-6">
+                    <div class="list-group-item z-depth-1" style="border:none;text-align: center;">
+                        <p [ngStyle]="{'font-size.px':fontSize}">Humidity</p>
+                        <p  [ngStyle]="{'font-size.px':fontSize}">{{device.humidity[4]}}</p>
+                 </div>
+                 </div>
+                 <div class="col-3" style="border:none;text-align: center;font-size:9px;margin-top:10%">
+                    <p [ngStyle]="{'font-size.px':fontSize}">Max-Humidity</p>
+                    <p [ngStyle]="{'font-size.px':fontSize}">{{maxh}}</p>
+                 </div>
+            </div>
+         </div>
+     </div>
+    </div>
+    <div class="row" >
+        <div class="card-body z-depth-1 white text-black" style="border: none;">
+            <div  class="float-left" style="width: 65%;">
+                <canvas mdbChart style="max-height: 115px;"
+                [chartType]="chartTypel"
+                [datasets]="chartDatasetsl3"
+                [labels]="chartLabelsl"
+                [colors]="chartColorsl3"
+                [options]="chartOptionsl"
+                [legend]="true"
+                (chartHover)="chartHoveredl($event)"
+                (chartClick)="chartClickedl($event)">
+                </canvas>
+            </div>
+            <div class="float-right" style="width: 35%;">
+                <div class="row">
+                     <div class="col-3" style="text-align: center;font-size:9px;margin-top:10%">
+                         <p [ngStyle]="{'font-size.px':fontSize}">Min-Battery Voltage</p>
+                         <p [ngStyle]="{'font-size.px':fontSize}">{{minb}}</p>
+                     </div>
+                     <div class="col-6">
+                        <div class="list-group-item z-depth-1" style="border:none;text-align: center;">
+                            <p [ngStyle]="{'font-size.px':fontSize}">Battery Voltage</p>
+                            <p [ngStyle]="{'font-size.px':fontSize}">{{device.batteryVoltage[4]}}</p>
+                     </div>
+                     </div>
+                     <div class="col-3" style="border:none;text-align: center;font-size:9px;margin-top:10%">
+                        <p [ngStyle]="{'font-size.px':fontSize}">Max-Battery Voltage</p>
+                        <p [ngStyle]="{'font-size.px':fontSize}">{{maxb}}</p>
+                     </div>
+                </div>
+             </div>
         </div>
     </div>
+    <div class="row" >
+        <div class="card-body z-depth-1 white text-black" style="border: none;">
+        <div class="float-left" style="width: 65%;">
+            <canvas mdbChart style="max-height: 115px;"
+            [chartType]="chartTypel"
+            [datasets]="chartDatasetsl4"
+            [labels]="chartLabelsl"
+            [colors]="chartColorsl4"
+            [options]="chartOptionsl"
+            [legend]="true"
+            (chartHover)="chartHoveredl($event)"
+            (chartClick)="chartClickedl($event)">
+            </canvas>
+        </div>
+        <div class="float-right" style="width: 35%;">
+            <div class="row">
+                 <div class="col-3" style="text-align: center;font-size:9px;margin-top:10%">
+                     <p [ngStyle]="{'font-size.px':fontSize}">Min-Solar Voltage</p>
+                     <p [ngStyle]="{'font-size.px':fontSize}">{{mins}}</p>
+                 </div>
+                 <div class="col-6">
+                    <div class="list-group-item z-depth-1" style="border:none;text-align: center;">
+                        <p [ngStyle]="{'font-size.px':fontSize}">Solar Voltage</p>
+                        <p [ngStyle]="{'font-size.px':fontSize}">{{device.solarVoltage[4]}}</p>
+                 </div>
+                 </div>
+                 <div class="col-3" style="border:none;text-align: center;font-size:9px;margin-top:10%">
+                    <p [ngStyle]="{'font-size.px':fontSize}">Max-Solar Voltage</p>
+                    <p [ngStyle]="{'font-size.px':fontSize}">{{maxs}}</p>
+                 </div>
+            </div>
+         </div>
+        </div>
+           
+    
+    </div>
+        
+       
+    
+    
 </div>
-
-

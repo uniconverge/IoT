@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud.component.scss']
 })
 export class CrudComponent implements OnInit {
-
+  width_amount=0;
   constructor() { }
 
   ngOnInit(): void {
     console.log('inside cC')
   }
-
+  openNav(){
+    this.width_amount=250;
+  }
 }

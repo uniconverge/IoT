@@ -2,9 +2,10 @@
 <div class="card .z-depth-1-half" style="border-radius: 20pt;margin-right: 0px;margin-left: 0px;margin-top: 5px;">
 
 
-    <div class="card-body" style="margin-top: 0px;" >
+    <div class="card-body" style="margin-top: 0px;height:90%;" >
 
         <!-- Form -->
+        <!-- <p  style="text-align: center;">not working as of now</p> -->
         <form [formGroup]="crudForm" (ngSubmit)="onSubmit()" class="text-center" style="color: #757575;">
             <div class="row" style="margin-top: 0px;">
                 <div class="col-6">
@@ -17,26 +18,27 @@
                     <button  mdbBtn color="warning" mdbWavesEffect type="submit"
                      (click)="onCancel()">
                     <strong>Cancel</strong>
-                </button>  
-                </div> 
-            </div>      
+                </button>
+                </div>
+            </div>
             <div class="row px-lg-3">
                 <label >Name</label>
                 <input type="text"
                 class="form-control"
-                formControlName="name">  
+                formControlName="name">
             </div>
             <div class="row px-lg-3">
                 <label >Model No</label>
                 <input type="text"
                 class="form-control"
-                formControlName="modelNo"> 
+                placeholder="IoT simulation only if model No. is correct"
+                formControlName="modelNo">
             </div>
             <div class="row px-lg-3">
                 <label >Location</label>
                 <input type="text"
                 class="form-control"
-                formControlName="location"> 
+                formControlName="location">
             </div>
             <div class="form-row px-lg-3">
                 <div class="col">
@@ -44,7 +46,7 @@
                         <label >Run Time</label>
                         <input type="number"
                         class="form-control"
-                        formControlName="runTime"> 
+                        formControlName="runTime">
                     </div>
                 </div>
                 <div class="col">
@@ -52,7 +54,9 @@
                         <label >Status</label>
                         <input type="text"
                         class="form-control"
-                        formControlName="status"> 
+                        formControlName="status"
+                        disabled>
+
                     </div>
                 </div>
             </div>
@@ -62,7 +66,8 @@
                         <label >Temperature</label>
                         <input type="number"
                         class="form-control"
-                        formControlName="temperature"> 
+                        formControlName="temperature"
+                        disabled>
                     </div>
                 </div>
                 <div class="col">
@@ -70,7 +75,8 @@
                         <label >Humidity</label>
                         <input type="number"
                         class="form-control"
-                        formControlName="humidity"> 
+                        formControlName="humidity"
+                        disabled>
                     </div>
                 </div>
             </div>
@@ -80,7 +86,8 @@
                         <label >Solar Voltage</label>
                         <input type="number"
                         class="form-control"
-                        formControlName="solarVoltage">  
+                        formControlName="solarVoltage"
+                        disabled>
                     </div>
                 </div>
                 <div class="col">
@@ -88,7 +95,8 @@
                         <label >Battery Voltage</label>
                         <input type="number"
                         class="form-control"
-                        formControlName="batteryVoltage"> 
+                        formControlName="batteryVoltage"
+                        disabled>
                     </div>
                 </div>
             </div>
@@ -97,11 +105,11 @@
                     <input type="text"
                     class="form-control"
                     formControlName="imagePath"
-                    #imagePath> 
+                    #imagePath>
             </div>
             <div class="row px-lg-3">
                 <div class="col-12">
-                    <img [src]="imagePath.value" alt="" style="max-height: 100px;">
+                    <img [src]="imagePath.value" alt="" style="max-height: 50px;">
                 </div>
             </div>
         </form>

@@ -26,9 +26,8 @@ export class CDetailsComponent implements OnInit {
     this.router.navigate([''],{relativeTo:this.route})
   }
 
-  
-  onChart(){
-    this.router.navigate(['graph'],{relativeTo:this.route})
+  onBack(){
+    this.router.navigate(['graph'],{relativeTo:this.route});
   }
   ngOnInit(): void {
     console.log('inside cdC')
@@ -37,7 +36,7 @@ export class CDetailsComponent implements OnInit {
           this.index =params['id']
           this.device=this.crudService.getDevice(this.index)
           this.crudService.cValuesChanged.subscribe((devices:Device[])=>{
-          this.device=this.crudService.getDevice(this.index)
+          this.device=devices[this.index]
           // this.dataStorageService.fetchDevice(this.device._id).subscribe((device:Device)=>{
           //   this.device=device
           //   console.log(this.device)

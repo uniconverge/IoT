@@ -7,15 +7,14 @@ import { Device } from './crud/crud.model';
 export class DatastorageService {
 
   constructor(private http:HttpClient) { }
-
   storeDevice(device:Device) {
     return this.http
-      .post<Device>(
+      .post(
         'https://alenthankz-iot-api.herokuapp.com/devices',
         //'https://localhost:3000/devices',
           device
       )
-      
+
   }
   fetchLatestDevice(){
     return this.http.get(
@@ -25,8 +24,8 @@ export class DatastorageService {
   }
   fetchDevices(){
     return this.http.get(
-      'https://alenthankz-iot-api.herokuapp.com/devices'
-     // 'https://localhost:3000/devices'
+     'https://alenthankz-iot-api.herokuapp.com/devices'
+      //'http://localhost:3000/devices'
     )
   }
 
@@ -39,13 +38,19 @@ export class DatastorageService {
 
   updateDevice(id:string,device:Device){
      return this.http
-     .patch('https://alenthankz-iot-api.herokuapp.com/devices/'+id,
+     .patch(
+       'https://alenthankz-iot-api.herokuapp.com/devices/'+id,
+      // 'https://localhost:3000/devices/'+id,
       device)
   }
 
   deleteDevice(_id:string){
-    this.http.delete('https://alenthankz-iot-api.herokuapp.com/devices/'+_id).subscribe()
+    return this.http
+    .delete(
+      'https://alenthankz-iot-api.herokuapp.com/devices/'+_id)
+      //'https://localhost:3000/devices/'+_id)
+      
   }
 
-  
+
 }

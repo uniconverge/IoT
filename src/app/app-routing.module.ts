@@ -18,7 +18,7 @@ const appRoutes: Routes = [
       {path:'add',component:CEditComponent},
       {path:':id',component:CDetailsComponent,resolve:[CrudResolverService]},
       {path:':id/edit',component:CEditComponent,resolve:[CrudResolverService]},
-      {path:':id/graph',component:GraphComponent,resolve:[CrudResolverService]}
+      {path:':id/graph',component:GraphComponent}
     ]
 },
  {path:'chart',component:ChartComponent}

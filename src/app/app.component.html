@@ -1,6 +1,108 @@
 
 <app-sidenav></app-sidenav>
-<div class="container-fluid  rgba-blue-grey-slight  " style="height:1000px">
-  <router-outlet *ngIf="okay"></router-outlet>
-  <app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div class="container-fluid  rgba-blue-grey-slight " >
+  <router-outlet *ngIf="okay && ok"></router-outlet>
+  <app-loading-spinner *ngIf="!(okay && ok)"></app-loading-spinner>
 </div>
+<!-- Footer -->
+<footer class="page-footer font-small info-color" style="margin-top: 10px;">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><i class="material-icons">email</i></h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">email</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"> <i class="material-icons">call</i></h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">70-65556-0002</a>
+          </li>
+          <li>
+            <a href="#!">70-6556-0011</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><i class="material-icons">location_on</i></h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Plot 23 sector 18</a>
+          </li>
+          <li>
+            <a href="#!">Maruti Industrial Development Area</a>
+          </li>
+          <li>
+            <a href="#!">Gurugram,Noida 122015</a>
+          </li>
+
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><i class="material-icons">attachment</i></h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">www.skilancersolars.in</a>
+          </li>
+          <li>
+            <a href="#!">help@skilancer.in</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a > skilancer</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

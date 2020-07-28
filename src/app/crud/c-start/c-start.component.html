@@ -1,5 +1,93 @@
-
-<div class="container-fluid" style="padding-left:19%;padding-top:20%;font-size: 20px;">
-    <h6 *ngIf="noDevice">please Add a device</h6>
-    <h6 *ngIf="!noDevice">please Add/select a device</h6>
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div class="div" *ngIf="okay" style="margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+    <div *ngIf="innerWidth>=1280"class="row white z-depth-1" style="padding-bottom: 5px;">
+      <div class="div" style="width: 33%;height: 50%;">
+        <canvas baseChart 
+            [data]="pieChartData1" 
+            [labels]="pieChartLabels1" 
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+      <div class="div" style="width: 33%;">
+        <canvas baseChart 
+            [data]="pieChartData2" 
+            [labels]="pieChartLabels2" 
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+      <div class="div" style="width: 33%;">
+        <canvas baseChart 
+            [data]="pieChartData3" 
+            [labels]="pieChartLabels2" 
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+    </div>
+    <div *ngIf="!(innerWidth>=1280)"class="row list-group-item" style="margin-top: 5px;border: none;">
+        <canvas baseChart 
+            [data]="pieChartData1" 
+            [labels]="pieChartLabels1" 
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+    </div>
+    <div class="row z-depth-1 white" style="margin-top: 2px;">
+      <div class="div" style="width: 50%;">
+        <h6  style="text-align: center;"><b>Temperature</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData1"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors1"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      <div class="div" style="width: 50%;">
+        <h6 style="text-align: center;"><b>Humidity</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData2"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors2"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
+    <div class="row z-depth-1 white" style="margin-top: 2px;">
+      <div class="div" style="width: 50%;">
+        <h6 style="text-align: center;"><b>Battery Voltage</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData3"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors2"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      <div class="div" style="width: 50%;">
+          <h6 style="text-align: center;"><b>Solar Voltage</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData4"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors1"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
 </div>
