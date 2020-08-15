@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { DatastorageService } from '../../datastorage.service';
-import { Device } from '../crud.model';
+import { Device } from '../../crud.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { CrudService } from '../crud.service';
+import { CrudService } from '../../crud.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 @Component({
   selector: 'app-graph',
@@ -31,7 +31,7 @@ export class GraphComponent implements OnInit {
         this.fontSize=5;
       }
       else{
-        this.fontSize=15;
+        this.fontSize=10;
       }
     }
 
@@ -44,8 +44,8 @@ export class GraphComponent implements OnInit {
         this.crudService.cValuesChanged.subscribe((devices:Device[])=>{
           this.okay=true
           this.device=devices[this.index]
-          this.chartDatasetsl1=[{data:this.device.temperature.slice(0,3),label:'temperature'}]
-         // this.chartDatasetsl1=[{data:[1,2],label:'temperature'}]
+          this.chartDatasetsl1=[{data:this.device.temperature.reverse(),label:'temperature'}]
+          // this.chartDatasetsl1=[{data:[1,2],label:'temperature'}]
           this.chartDatasetsl2=[{data:this.device.humidity.reverse(),label:'Humidity'}]
           this.chartDatasetsl3=[{data:this.device.batteryVoltage.reverse(),label:'Battery Voltage'}]
           this.chartDatasetsl4=[{data:this.device.solarVoltage.reverse(),label:'Solar Voltage'}]
@@ -62,7 +62,7 @@ export class GraphComponent implements OnInit {
             this.fontSize=5;
           }
           else{
-            this.fontSize=15;
+            this.fontSize=10;
           }
           //console.log(this.fontSize)
         })

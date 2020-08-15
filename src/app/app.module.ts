@@ -19,6 +19,17 @@ import { CStartComponent } from './crud/c-start/c-start.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphComponent } from './crud/graph/graph.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { RegistComponent } from './regist/regist.component';
+import { RegListComponent } from './regist/reg-list/reg-list.component';
+import { RegItemComponent } from './regist/reg-list/reg-item/reg-item.component';
+import { ParamAnalyseComponent } from './param-analyse/param-analyse.component';
+import { ParamAnalyseEachComponent } from './param-analyse/param-analyse-each/param-analyse-each.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { AlertItemComponent } from './alert-item/alert-item.component';
+import { AlertDispComponent } from './alert-disp/alert-disp.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +44,18 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     CDetailsComponent,
     CStartComponent,
     GraphComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    FooterComponent,
+    NavbarComponent,
+    HomeComponent,
+    RegistComponent,
+    RegListComponent,
+    RegItemComponent,
+    ParamAnalyseComponent,
+    ParamAnalyseEachComponent,
+    ErrorPageComponent,
+    AlertItemComponent,
+    AlertDispComponent,
   ],
   imports: [
     ChartsModule,

@@ -1,10 +1,9 @@
 <app-loading-spinner *ngIf="!okay"></app-loading-spinner>
 <div class="div" *ngIf="okay" style="margin-left: 10px;margin-right: 10px;margin-top: 8px;">
-    <div class="row">
-        <a   class="card-header btn-info white-text text-center py-4" style="max-height: 25px;width: 100%;" (click)="onDetails()">
-            <a >Details-</a><a><b><b>{{device.name}}</b></b></a><img src="https://cdn1.iconfinder.com/data/icons/unigrid-bluetone-human-vol-1/60/011_023__point_pointing_finger_hand_click_touch_3-512.png" alt=""
-             style="max-height: 35px;margin-left: 10px;padding-bottom: 8px;">
-        </a>
+    <div class="row" >
+        <div class="col-4"></div>
+        <div class="col-4" style="text-align: center;"><b >{{device.name}}</b></div>
+        <div class="col-4"></div>
     </div>
     <div class="row" >
         <div class="card-body clearfix z-depth-1 white text-black" style="border: none;">

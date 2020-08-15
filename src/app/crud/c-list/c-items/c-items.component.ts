@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Device } from '../../crud.model';
+import { Device } from '../../../crud.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BLACK_ON_WHITE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
 

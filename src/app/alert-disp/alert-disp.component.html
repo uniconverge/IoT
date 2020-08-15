@@ -1,0 +1,17 @@
+<app-navbar heading="Alerts"></app-navbar>
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div *ngIf="okay" style="margin-left: 20px;margin-right: 20px;height: 100%;margin-top: 10px;">
+    <mdb-card style="height: 700px;">
+        <mdb-card-body>
+            <div class="row" style="margin-left:5%;">
+                <div style="width: 33%;"><b>Name</b> </div> 
+                <div style="width: 33%;"><b>Parameter</b> </div> 
+                <div style="width: 33%;"><b>Value</b> </div> 
+            </div>
+            <hr>
+            <app-alert-item *ngFor="let alert of alertArray"
+            [obj]="alert"
+            [fsize]="innerWidth>=768?15:8"></app-alert-item>
+        </mdb-card-body>
+    </mdb-card>
+</div>

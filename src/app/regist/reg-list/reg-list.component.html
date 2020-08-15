@@ -1,0 +1,30 @@
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<mdb-card *ngIf="okay" style="margin-left: 20px;height:100%;margin-right: 10px;margin-top: 10px;">
+    <mdb-card-body>
+       <div class="list-group-item clearfix" style="border: none;">
+           <a routerLink="add" >
+            <div class="float-right"><i class="material-icons md-48">add</i></div>
+           </a>
+       </div>
+       <div class="row">
+        <div class="col-lg-2"><b>Name</b> </div>
+        <div class="col-lg-3"><b>Model No.</b> </div>
+        <div class="col-lg-2"><b>Location</b> </div>
+        <div class="col-lg-2"><b> Run Time</b> </div>
+        <div class="col-lg-1"><b>View</b> </div>
+        <div class="col-lg-1"><b>Edit</b> </div>
+        <div class="col-lg-1"><b>Delete</b> </div>
+    </div>
+    <b><hr></b>
+       <div class="row" style="margin-top: 20px;" >
+        <div class="col-12">
+            <app-reg-item
+                *ngFor="let i=index;let deviceEl of devices;"
+                [device]="deviceEl"
+                [index]="i"
+            ></app-reg-item>
+        </div>
+    </div>
+    <div class="row" style="height: 300px;"></div>
+    </mdb-card-body>
+</mdb-card>

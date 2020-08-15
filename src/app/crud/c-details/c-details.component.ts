@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { CrudService } from '../crud.service';
-import { Device } from '../crud.model';
+import { CrudService } from '../../crud.service';
+import { Device } from '../../crud.model';
 import { DatastorageService } from 'src/app/datastorage.service';
 import { ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
@@ -27,12 +27,13 @@ export class CDetailsComponent implements OnInit {
   }
 
   onBack(){
-    this.router.navigate(['graph'],{relativeTo:this.route});
+    this.router.navigate(['../'],{relativeTo:this.route});
   }
   ngOnInit(): void {
     console.log('inside cdC')
     this.route.params.subscribe(
       (params:Params)=>{
+        console.log(params);
           this.index =params['id']
           this.device=this.crudService.getDevice(this.index)
           this.crudService.cValuesChanged.subscribe((devices:Device[])=>{

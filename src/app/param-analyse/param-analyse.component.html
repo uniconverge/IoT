@@ -1,0 +1,30 @@
+<app-navbar heading="Parameterized Analysis"></app-navbar>
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div *ngIf="okay" style="margin-left: 20px;margin-right: 20px;height: 100%;margin-top: 10px;">
+    <mdb-card>
+        <mdb-card-body style="height: 100%;">
+            <div class="dropdown" mdbDropdown>
+                <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
+                  mdbWavesEffect>
+                  Parameter
+                </button>
+              
+                <div class="dropdown-menu">
+                  <a class="dropdown-item"  (click)="onTemp()">Tempearture</a>
+                  <a class="dropdown-item" (click)="onHum()">Humidity</a>
+                  <a class="dropdown-item"  (click)="onSv()">Solar Voltage</a>
+                  <a class="dropdown-item"  (click)="onBv()">Battery Voltage</a>
+                </div>
+              </div>
+            <div class="row" style="margin-left: 45%;margin-top: 10px;"><p >{{param}}</p></div>
+            <div >
+                <app-param-analyse-each
+                *ngFor="let i=index;let deviceEl of devices;"
+                [device]="deviceEl"
+                [param]="param"
+                [height]="100/devices.length"
+                ></app-param-analyse-each>
+            </div>
+        </mdb-card-body>
+    </mdb-card>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { CrudService } from '../crud.service';
-import { Device } from '../crud.model';
+import { CrudService } from '../../crud.service';
+import { Device } from '../../crud.model';
 import { Label, SingleDataSet, monkeyPatchChartJsTooltip, monkeyPatchChartJsLegend, Color } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 

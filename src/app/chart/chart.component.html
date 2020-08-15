@@ -1,0 +1,120 @@
+<app-navbar heading="DashBoard"></app-navbar>
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div class="div" *ngIf="okay" style="margin-top: 10px;margin-left: 30px;margin-right: 30px;">
+    <div *ngIf="innerWidth>=768"class="row white z-depth-1" style="padding-bottom: 5px;">
+      <div class="div" style="width: 25%;height: 100%;">
+        <canvas baseChart height=200px;
+            [data]="pieChartData1" 
+            [labels]="pieChartLabels1" 
+            [colors]="colors1"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+      <div class="div" style="width: 25%;height: 100%;">
+        <canvas baseChart  height=200px
+            [data]="pieChartData2" 
+            [labels]="pieChartLabels2" 
+            [colors]="colors2"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+      <div class="div" style="width: 25%;height: 100%;">
+        <canvas baseChart  height=200px
+            [data]="pieChartData3" 
+            [labels]="pieChartLabels3" 
+            [colors]="colors3"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+      </div>
+      <div class="div" style="width: 25%;height: 100%;">
+        <mdb-card style="margin-top: 10px;margin-bottom: 10px;margin-right: 10px;border-radius: 5pt;">
+          <mdb-card-title class="warning-color" style="text-align: center;"><b>Alerts</b></mdb-card-title>
+          <mdb-card-body style="height:120px;padding-top: 0px;">
+            <app-alert-item *ngFor="let alert of alertArray"
+            [obj]="alert"
+            fsize=9></app-alert-item>
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+    </div>
+    <div *ngIf="!(innerWidth>=768)"class="row list-group-item" style="margin-top: 5px;border: none;">
+        <div class="col-sm-12">
+          <canvas baseChart 
+            [data]="pieChartData1" 
+            [labels]="pieChartLabels1" 
+            [colors]="colors1"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+          </canvas>
+        </div>
+        <div class="col-sm-12">
+          <mdb-card style="margin-top: 10px;margin-bottom: 10px;margin-right: 10px;border-radius: 5pt;">
+            <mdb-card-title class="warning-color" style="text-align: center;"><b>Alerts</b></mdb-card-title>
+            <mdb-card-body style="padding-top: 0px;height: 90px;">
+              <app-alert-item *ngFor="let alert of alertArray"
+              [obj]="alert"
+              fsize=8></app-alert-item>
+            </mdb-card-body>
+          </mdb-card>
+        </div>
+    </div>
+    <div class="row z-depth-1 white" style="margin-top: 2px;">
+      <div class="div" style="width: 50%;">
+        <h6  style="text-align: center;"><b>Temperature</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData1"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors1"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      <div class="div" style="width: 50%;">
+        <h6 style="text-align: center;"><b>Humidity</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData2"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors2"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
+    <div class="row z-depth-1 white" style="margin-top: 2px;">
+      <div class="div" style="width: 50%;">
+        <h6 style="text-align: center;"><b>Battery Voltage</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData3"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors2"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      <div class="div" style="width: 50%;">
+          <h6 style="text-align: center;"><b>Solar Voltage</b></h6>
+          <canvas baseChart width="50%" [height]="height"
+          [datasets]="lineChartData4"
+          [labels]="lineChartLabels"
+          [colors]="lineChartColors1"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
+</div>

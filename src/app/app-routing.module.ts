@@ -7,21 +7,36 @@ import { CEditComponent } from './crud/c-edit/c-edit.component';
 import { CDetailsComponent } from './crud/c-details/c-details.component';
 import { CrudResolverService } from './crud/crud-resolver.service';
 import { GraphComponent } from './crud/graph/graph.component';
-
+import { HomeComponent } from './home/home.component';
+import { RegistComponent } from './regist/regist.component';
+import { RegListComponent } from './regist/reg-list/reg-list.component';
+import {RegistResolverService}from './regist/regist-resolver.service'
+import { ParamAnalyseComponent } from './param-analyse/param-analyse.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { AlertDispComponent } from './alert-disp/alert-disp.component';
 
 const appRoutes: Routes = [
-    {path:'',redirectTo:'/crud',pathMatch:'full'},
+    {path:'',redirectTo:'/home',pathMatch:'full'},
+    {path:'home',component:HomeComponent},
     {path:'crud',
     component:CrudComponent,
+      children:[
+        {path:'',redirectTo:'0/graph',pathMatch:'full'},
+        {path:':id/graph',component:GraphComponent}
+      ]
+    },
+  {path:'registry',
+  component:RegistComponent,
     children:[
-      {path:'',component:CStartComponent},
-      {path:'add',component:CEditComponent},
-      {path:':id',component:CDetailsComponent,resolve:[CrudResolverService]},
-      {path:':id/edit',component:CEditComponent,resolve:[CrudResolverService]},
-      {path:':id/graph',component:GraphComponent}
-    ]
-},
- {path:'chart',component:ChartComponent}
+        {path:'',component:RegListComponent},
+        {path:'add',component:CEditComponent},
+        {path:':id',component:CDetailsComponent,resolve:[RegistResolverService]},
+        {path:':id/edit',component:CEditComponent,resolve:[RegistResolverService]},
+    ]},
+ {path:'chart',component:ChartComponent},
+ {path:'analyse-each',component:ParamAnalyseComponent},
+ {path:'alert',component:AlertDispComponent},
+ {path:'error-page',component:ErrorPageComponent},
 ];
 
 @NgModule({

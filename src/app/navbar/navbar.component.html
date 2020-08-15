@@ -1,0 +1,53 @@
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color" style="margin-left:0px">
+    <div class="row">
+      <div class="col-5">
+        <div class="row white-text" style="padding-left: 15px;margin-right: 10px;">
+         {{heading}}
+        </div>
+      </div>
+    </div>
+      <ul *ngIf="!(innerWidth>=1280)" class="navbar-nav ml-auto">
+        <div  class="row">
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onHome()">home</i></a>
+          </li></div>
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onChart()">dashboard</i></a>
+          </li></div>
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onAnalyse()">search</i></a>
+          </li></div>
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onParamAnalyse()">linear_scale</i></a>
+          </li></div>
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onRegistry()">settings</i></a>
+          </li></div>
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onAlert()">warning</i></a>
+          </li></div>
+          <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onLogOut()">person</i></a>
+          </li></div>
+        </div>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="innerWidth>=1280">
+        <div  class="row">
+          <li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onLogOut()">person</i></a>
+          </li>
+        </div>
+      </ul>
+    <!-- </div> -->
+  </nav>
+  <!--/.Navbar -->

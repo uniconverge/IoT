@@ -11,6 +11,7 @@ export class CrudComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('inside cC')
+    
   }
   openNav(){
     this.width_amount=250;

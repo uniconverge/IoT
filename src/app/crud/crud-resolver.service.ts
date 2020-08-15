@@ -6,9 +6,9 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 
-import { CrudService } from './crud.service';
+import { CrudService } from '../crud.service';
 import { DatastorageService } from '../datastorage.service';
-import { Device } from './crud.model';
+import { Device } from '../crud.model';
 
 @Injectable({ providedIn: 'root' })
 export class CrudResolverService implements Resolve<any> {

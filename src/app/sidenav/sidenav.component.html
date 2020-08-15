@@ -1,34 +1,30 @@
-<!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-  <div class="row">
-    <div class="col-8">
-      <div class="row">
-        <div class="col-4">
-          <a class="navbar-brand "><img src="../../assets/final.png" style="max-height: 30px;"></a>
-        </div>
-        <div class="col-8">
-          <a class="navbar-brand text-white" ><b style="font-size: 16px;">Skilancer Pvt Ltd.</b></a>
-        </div>
+<mdb-card  class=" info-color-dark" style="height: 100%;border-radius: 0pt;">
+  <mdb-card-body>
+    <div class="row">
+      <div class="col-4">
+        <a class="brand "><img src="../../assets/final.png" style="max-height: 30px;"></a>
+      </div>
+      <div class="col-8">
+        <a class="brand text-white" ><b style="font-size: 16px;">Skilancer Pvt Ltd.</b></a>
       </div>
     </div>
-    <div class="col-4" style="margin-right: 0px;">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-        aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation" >
-      <span class="navbar-toggler-icon" ></span>
-    </button>
-    </div>
+  <div *ngIf="(innerWidth>=1024)" >
+   <hr style="margin-right: 0px;margin-left:0px;">
+   <div class="list-group-item info-color-dark" style="text-align: center;border: none;"><a routerLink="/home" routerLinkActive="active" 
+        ><h6 style="color: white;">Home</h6></a>
+   </div>
+   <hr style="margin-right: 0px;margin-left:0px;">
+   <div  class="list-group-item  info-color-dark " style="text-align: center;border: none;"><a routerLink="/chart" routerLinkActive="active"><h6 style="color: white;">DashBoard</h6></a></div >
+   <hr style="margin-right: 0px;margin-left:0px;">
+   <div  class="list-group-item  info-color-dark" style="text-align: center;border: none;"><a routerLink="/crud" routerLinkActive="active"><h6 style="color: white;">Analysis</h6></a></div >
+   <hr style="margin-right: 0px;margin-left:0px;">
+   <div  class="list-group-item  info-color-dark" style="text-align: center;border: none;"><a routerLink="/analyse-each" routerLinkActive="active"><h6 style="color: white;">Parameterized Analysis</h6></a></div >
+   <hr style="margin-right: 0px;margin-left:0px;">
+   <div  class="list-group-item  info-color-dark" style="text-align: center;border: none;"><a routerLink="/registry" routerLinkActive="active"><h6 style="color: white;">Device registory</h6></a></div >
+   <hr style="margin-right: 0px;margin-left:0px;">
+   <div  class="list-group-item  info-color-dark" style="text-align: center;border: none;"><a routerLink="/alert" routerLinkActive="active"><h6 style="color: white;">Alerts</h6></a></div >
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" style="text-align: center;">
-          <i class="material-icons" (click)="onHome()">home</i></a>
-      </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" style="text-align: center;">
-             <i class="material-icons" (click)="onDashboard()">dashboard</i></a>
-      </li> -->
-    </ul>
-  </div>
-</nav>
-<!--/.Navbar -->
+
+   
+  </mdb-card-body>
+</mdb-card>

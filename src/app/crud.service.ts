@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import {Device} from './crud.model';
 import { Subject } from 'rxjs';
-import { DatastorageService } from '../datastorage.service';
+import { DatastorageService } from './datastorage.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CrudService implements OnInit {
   cValuesChanged =new Subject<Device[]>()
+  okStatusChanged =new Subject<boolean>()
   devices:Device[]=[];
   ok=true
   constructor(private http:HttpClient,private dataStorageService:DatastorageService){
@@ -36,13 +37,15 @@ export class CrudService implements OnInit {
 
   addDevice(device:Device){
    // this.devices.splice(0,0,device);
-    //this.ok=false
+    this.ok=false
+    this.okStatusChanged.next(this.ok);
     console.log(device)
     this.dataStorageService.storeDevice(device).subscribe(()=>{
       // this.devices.splice(0,1)
       // this.devices.splice(0,0,device)
       // this.cValuesChanged.next(this.devices.slice())
-      //this.ok=true
+      this.ok=true
+      this.okStatusChanged.next(this.ok);
     
     })
    // this.cValuesChanged.next(this.devices.slice())
@@ -51,7 +54,8 @@ export class CrudService implements OnInit {
     // console.log(dev)
       //this.devices[index]._id
       // this.cValuesChanged.next(this.devices.slice())
-      this.ok=false
+    this.ok=false
+    this.okStatusChanged.next(this.ok);
     console.log(this.devices[index]._id)
     console.log(device)
     this.dataStorageService.updateDevice( this.devices[index]._id,device).subscribe(()=>{
@@ -59,17 +63,17 @@ export class CrudService implements OnInit {
         // this.cValuesChanged.next(this.devices.slice())
         //console.log(device)
         this.ok=true
-    
+        this.okStatusChanged.next(this.ok);
     })
   }
 
   deleteDevice(index:number){
     let _id =this.devices[index]._id
-    //this.devices.splice(index, 1);
-    //this.ok=false
-    //this.cValuesChanged.next(this.devices.slice())
+    this.ok=false
+    this.okStatusChanged.next(this.ok);
     this.dataStorageService.deleteDevice(_id).subscribe(()=>{
-     // this.ok=true
+      this.ok=true
+      this.okStatusChanged.next(this.ok);
     })
     console.log(this.devices)
   }

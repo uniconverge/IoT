@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControlName, Validators, FormControl } from '@angular/forms';
-import { CrudService } from '../crud.service';
+import { CrudService } from '../../crud.service';
 import { DatastorageService } from 'src/app/datastorage.service';
-import { Device } from '../crud.model';
+import { Device } from '../../crud.model';
 import { variable } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -19,7 +19,10 @@ export class CEditComponent implements OnInit {
   constructor(private router :Router,private route:ActivatedRoute,
     private crudService:CrudService,private dataStorageService:DatastorageService) { }
   onCancel(){
-    this.router.navigate(['../'],{relativeTo:this.route});
+    if(this.editMode){
+      this.router.navigate(['../../'],{relativeTo:this.route});
+    }
+    else this.router.navigate(['../'],{relativeTo:this.route});
   }
   onSubmit(){
     if(this.editMode){
