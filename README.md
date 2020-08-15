@@ -1,4 +1,4 @@
-https://skylancer-iot.web.app
+https://iot-alenthankz.web.app
 (mobile responsive)
 
 
