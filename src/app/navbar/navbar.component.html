@@ -31,20 +31,25 @@
           </li></div>
           <div ><li class="nav-item active">
             <a class="nav-link" style="text-align: center;">
-              <i class="material-icons" (click)="onAlert()">warning</i></a>
+              <i class="material-icons" (click)="onSensor()">upgrade</i></a>
           </li></div>
           <div ><li class="nav-item active">
             <a class="nav-link" style="text-align: center;">
-              <i class="material-icons" (click)="onLogOut()">person</i></a>
+              <i class="material-icons" (click)="onAlert()">warning</i></a>
           </li></div>
+          <!-- <div ><li class="nav-item active">
+            <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onLogOut()">person</i></a>
+          </li></div> -->
         </div>
       </ul>
 
       <ul class="navbar-nav ml-auto" *ngIf="innerWidth>=1280">
-        <div  class="row">
+        <div  class="row"  style="height: 50px;">
           <li class="nav-item active">
-            <a class="nav-link" style="text-align: center;">
-              <i class="material-icons" (click)="onLogOut()">person</i></a>
+            
+            <!-- <a class="nav-link" style="text-align: center;">
+              <i class="material-icons" (click)="onLogOut()">person</i></a> -->
           </li>
         </div>
       </ul>

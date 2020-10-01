@@ -1,5 +1,21 @@
 <app-navbar heading="Home"></app-navbar>
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
 <div  class="container" style="height: 80%;">
+  <hr>
+  <div  *ngIf="okay" class="row" style="margin-left: 50px;margin-right: 50px;margin-top: 0px;margin-bottom: 0px;">
+    <b style="margin-right: 8px;margin-top: 10px;">General Setting :</b>
+    <form [formGroup]="pointForm" (ngSubmit)="onSubmit()" class="text-center form-inline" style="color: #757575;font-size: 13px;">
+      <label style="margin-left: 10px;" class="my-1 mr-2" for="inlineFormCustomSelectPref">Frequency</label>
+      <input type="number"
+        class="form-control"
+        formControlName="value"
+       >
+      <button style="margin-left: 10px; margin-top: 5px;" type="submit" class="btn btn-primary my-1">Submit</button>
+
+    </form>
+  </div>
+  <hr>
+
     <div class="row" style="margin-left: 30px;" >
         <div class="col-sm-6" style="margin-top: 10px;;">
          <a routerLink="/chart" >
@@ -55,6 +71,18 @@
       </div>
       <div class="row" style="margin-left: 30px;">
         <div class="col-sm-6" style="margin-top: 10px;;">
+          <a routerLink="/sensors" >
+            <div class="card"  style="width:80%">
+                <img class="card-img-top"
+                 src="../../assets/report.png"
+                 alt="Card image"  style="max-height: 250px;">
+                <div class="card-body">
+                  <h4 class="card-title" style="text-align: center;">Add Sensors</h4>
+                </div>
+              </div>
+         </a>
+        </div> 
+        <div class="col-sm-6" style="margin-top: 10px;;">
           <a routerLink="/alert" >
             <div class="card"  style="width:80%">
                 <img class="card-img-top"
@@ -62,18 +90,6 @@
                  alt="Card image"  style="max-height: 250px;">
                 <div class="card-body">
                   <h4 class="card-title" style="text-align: center;">Alerts</h4>
-                </div>
-              </div>
-         </a>
-        </div> 
-        <div class="col-sm-6" style="margin-top: 10px;;">
-          <a routerLink="/error-page" >
-            <div class="card"  style="width:80%">
-                <img class="card-img-top"
-                 src="../../assets/report.png"
-                 alt="Card image"  style="max-height: 250px;">
-                <div class="card-body">
-                  <h4 class="card-title" style="text-align: center;">Reports</h4>
                 </div>
               </div>
          </a>

@@ -1,12 +1,74 @@
 <app-navbar heading="Alerts"></app-navbar>
 <app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+
 <div *ngIf="okay" style="margin-left: 20px;margin-right: 20px;height: 100%;margin-top: 10px;">
-    <mdb-card style="height: 700px;">
+    <mdb-card style="height: 600px;">
         <mdb-card-body>
-            <div class="row" style="margin-left:5%;">
-                <div style="width: 33%;"><b>Name</b> </div> 
-                <div style="width: 33%;"><b>Parameter</b> </div> 
-                <div style="width: 33%;"><b>Value</b> </div> 
+            <form [formGroup]="alertForm" (ngSubmit)="onSubmit()" class="text-center" style="color: #757575;font-size: 13px;">
+                <div class="form-row px-lg-3" style="margin-bottom: 5px;">
+                    <div class="col">
+                        <div class="row" style="margin-right: 12px;">
+                            <label class="col-sm-6 col-form-label">Temperature</label>
+                            <div class="col-sm-4">
+                                <input type="number"
+                                class="form-control"
+                                formControlName="temperature"
+                                >
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <label class="col-sm-6 col-form-label">Humidity</label>
+                            <div class="col-sm-4">
+                                <input type="number"
+                                class="form-control"
+                                formControlName="humidity"
+                                >
+                            </div>
+    
+                        </div>
+                    </div>
+                </div><div class="form-row px-lg-3">
+                    <div class="col">
+                        <div class="row" style="margin-right: 12px;">
+                            <label class="col-sm-6 col-form-label">Solar Voltage</label>
+                            <div class="col-sm-4">
+                                <input type="number"
+                                class="form-control"
+                                formControlName="solarvoltage">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <label class="col-sm-6 col-form-label">Battery Voltage</label>
+                            <div class="col-sm-4">
+                                <input type="number"
+                                class="form-control"
+                                formControlName="batteryvoltage"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-12">
+                        <button mdbBtn color="success" mdbWavesEffect type="submit"
+                         [disabled]="!alertForm.valid">
+                        <strong style="font-size: 10px;">Update Threshold</strong>
+                    </button>
+                    </div>
+                </div>
+            </form>
+
+
+            <hr>
+            <div class="row" style="margin-left:5%;margin-top: 10px;">
+                <div style="width: 33.3%;"><b>Name</b> </div> 
+                <div style="width: 33.3%;"><b>Parameter</b> </div> 
+                <div style="width: 33.3%;"><b>Value</b> </div> 
             </div>
             <hr>
             <app-alert-item *ngFor="let alert of alertArray"

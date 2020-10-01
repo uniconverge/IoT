@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private dataStorageService:DatastorageService,private crudService:CrudService){}
   ngOnInit(){
     console.log('inside AC')
+   this.dataStorageService.getnoPoints();
    setInterval(()=>{
     this.dataStorageService.fetchDevices().subscribe(
       (devices:Device[])=>{

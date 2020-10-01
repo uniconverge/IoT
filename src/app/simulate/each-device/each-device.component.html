@@ -1,0 +1,26 @@
+<app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+<div class="row" *ngIf="okay && fsize==15" style="margin-top: 50px;">
+    <div class="col-2" >{{device.name}}</div>
+    <div class="col-2" >{{device.location}}</div>
+    <div class="col-2" *ngIf="sensor.temperature"><button type="button" class="btn btn-danger" (click)="onDisableTemp()" >Disable</button></div>
+    <div class="col-2" *ngIf="!sensor.temperature"><button type="button" class="btn btn-outline-danger waves-effect" (click)="onEnableTemp()">Enable</button></div>
+    <div class="col-2" *ngIf="sensor.humidity"><button type="button" class="btn btn-primary" (click)="onDisableHum()">Disable</button></div>
+    <div class="col-2" *ngIf="!sensor.humidity"><button type="button" class="btn btn-outline-primary waves-effect" (click)="onEnableHum()">Enable</button></div>
+    <div class="col-2" *ngIf="sensor.solarvoltage"><button type="button" class="btn btn-warning" (click)="onDisableSv()">Disable</button></div>
+    <div class="col-2" *ngIf="!sensor.solarvoltage"><button type="button" class="btn btn-outline-warning waves-effect" (click)="onEnableSv()">Enable</button></div>
+    <div class="col-2" *ngIf="sensor.batteryvoltage"><button type="button" class="btn btn-success" (click)="onDisableBv()"   >Disable</button></div>
+    <div class="col-2" *ngIf="!sensor.batteryvoltage"><button type="button" class="btn btn-outline-success waves-effect" (click)="onEnableBv()">Enable</button></div>
+</div>
+<div class="row" *ngIf="okay && fsize==5" style="margin-top: 50px;">
+    <div class="col-2" [ngStyle]="{'font-size.px':fsize}">{{device.name}}</div>
+    <div class="col-2" [ngStyle]="{'font-size.px':fsize}">{{device.location}}</div>
+    <div class="col-2" *ngIf="sensor.temperature"><a class="btn-floating btn-sm btn-danger" (click)="onDisableTemp()"><i class="fas fa-check-circle"></i> </a></div>
+    <div class="col-2" *ngIf="!sensor.temperature"><a class="btn-floating btn-sm btn-danger" (click)="onEnableTemp()"><i class="fas fa-circle"></i> </a></div>
+    <div class="col-2" *ngIf="sensor.humidity"><a class="btn-floating btn-sm btn-primary" (click)="onDisableHum()"><i class="fas fa-check-circle"></i> </a></div>
+    <div class="col-2" *ngIf="!sensor.humidity"><a class="btn-floating btn-sm btn-primary" (click)="onEnableHum()"><i class="fas fa-circle"></i> </a></div>
+    <div class="col-2" *ngIf="sensor.solarvoltage"><a class="btn-floating btn-sm btn-warning" (click)="onDisableSv()"><i class="fas fa-check-circle"></i> </a></div>
+    <div class="col-2" *ngIf="!sensor.solarvoltage"><a class="btn-floating btn-sm btn-warning" (click)="onEnableSv()"><i class="fas fa-circle"></i> </a></div>
+    <div class="col-2" *ngIf="sensor.batteryvoltage"><a class="btn-floating btn-sm btn-success" (click)="onDisableBv()"><i class="fas fa-check-circle"></i> </a></div>
+    <div class="col-2" *ngIf="!sensor.batteryvoltage"><a class="btn-floating btn-sm btn-success" (click)="onEnableBv()"><i class="fas fa-circle"></i> </a></div>
+   
+</div>

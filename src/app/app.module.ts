@@ -30,6 +30,9 @@ import { ParamAnalyseEachComponent } from './param-analyse/param-analyse-each/pa
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AlertItemComponent } from './alert-item/alert-item.component';
 import { AlertDispComponent } from './alert-disp/alert-disp.component';
+import { SimulateComponent } from './simulate/simulate.component';
+import { EachDeviceComponent } from './simulate/each-device/each-device.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { AlertDispComponent } from './alert-disp/alert-disp.component';
     ErrorPageComponent,
     AlertItemComponent,
     AlertDispComponent,
+    SimulateComponent,
+    EachDeviceComponent,
+    AuthComponent,
   ],
   imports: [
     ChartsModule,

@@ -34,6 +34,9 @@ export class NavbarComponent implements OnInit {
   onRegistry(){
     this.router.navigate(['/registry']) 
   }
+  onSensor(){
+    this.router.navigate(['/sensors']) 
+  }
   onAlert(){
     this.router.navigate(['/alert']) 
   }

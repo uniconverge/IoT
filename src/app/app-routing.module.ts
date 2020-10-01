@@ -14,6 +14,8 @@ import {RegistResolverService}from './regist/regist-resolver.service'
 import { ParamAnalyseComponent } from './param-analyse/param-analyse.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AlertDispComponent } from './alert-disp/alert-disp.component';
+import { SimulateComponent } from './simulate/simulate.component';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
     {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -36,6 +38,8 @@ const appRoutes: Routes = [
  {path:'chart',component:ChartComponent},
  {path:'analyse-each',component:ParamAnalyseComponent},
  {path:'alert',component:AlertDispComponent},
+ {path:'sensors',component:SimulateComponent},
+ {path:'auth',component:AuthComponent},
  {path:'error-page',component:ErrorPageComponent},
 ];
 

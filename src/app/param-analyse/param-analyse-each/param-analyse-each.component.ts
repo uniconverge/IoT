@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { Device } from 'src/app/crud.model';
+import { DatastorageService } from 'src/app/datastorage.service';
 
 @Component({
   selector: 'app-param-analyse-each',
@@ -16,14 +17,32 @@ export class ParamAnalyseEachComponent implements OnInit {
   color:string="red";
 
 
-  public lineChartLabels: Label[] = ['4 min ago','3 min ago','2 min ago',' 1 min ago',' now'];
+  public lineChartLabels: Label[] = [];
   public lineChartColors: Array<any>;
   public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [];
-  constructor() { }
+  constructor(private dataStorageService:DatastorageService) { }
 
   ngOnInit(): void {
+    var num =this.dataStorageService.noPoints
+    this.lineChartLabels=[];
+    num--;
+    while(num){
+      this.lineChartLabels.push(num+" ago");
+      num--
+    }
+    this.lineChartLabels.push("now")
+    this.dataStorageService.pointsChanged.subscribe((num:number)=>{
+      this.lineChartLabels=[];
+      num--
+      while(num){
+        this.lineChartLabels.push(num+" ago");
+        num--
+      }
+      this.lineChartLabels.push("now")
+    });
+    
     switch(this.param){
       case 'temperature':this.color="red";break;
       case 'humidity':this.color="blue";break;

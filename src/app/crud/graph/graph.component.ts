@@ -23,7 +23,7 @@ export class GraphComponent implements OnInit {
   fontSize=90
 
   constructor(private breakPointObserver:BreakpointObserver,private router:Router,private route:ActivatedRoute,
-    private crudService:CrudService) {  }
+    private crudService:CrudService,private dataStorageService:DatastorageService) {  }
     @HostListener('window:resize', ['$event'])
     onResize(event) {
       this.innerWidth = window.innerWidth;
@@ -36,6 +36,23 @@ export class GraphComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    var num =this.dataStorageService.noPoints
+    this.chartLabelsl=[];
+    num--;
+    while(num){
+      this.chartLabelsl.push(num+" ago");
+      num--
+    }
+    this.chartLabelsl.push("now")
+    this.dataStorageService.pointsChanged.subscribe((num:number)=>{
+      this.chartLabelsl=[];
+      num--
+      while(num){
+        this.chartLabelsl.push(num+" ago");
+        num--
+      }
+      this.chartLabelsl.push("now")
+    });
     this.route.params.subscribe(
       (params:Params)=>{
         this.index =params['id']
@@ -104,7 +121,7 @@ export class GraphComponent implements OnInit {
 
 
 
-  public chartLabelsl: Array<any> = ['4 min ago','3 min ago','2 min ago',' 1 min ago',' now'];
+  public chartLabelsl: Array<any> = [];
   public chartColorsl1: Array<any> = [
     {
       backgroundColor: 'rgba(0,0,0,0)',

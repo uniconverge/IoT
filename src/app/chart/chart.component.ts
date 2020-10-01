@@ -3,7 +3,8 @@ import { Device } from '../crud.model';
 import { CrudService } from '../crud.service';
 import { Label, SingleDataSet, monkeyPatchChartJsTooltip, monkeyPatchChartJsLegend, Color } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { AlertService } from '../alert.service';
+import { AlertService } from '../alert-disp/alert.service';
+import { DatastorageService } from '../datastorage.service';
 
 @Component({
   selector: 'app-chart',
@@ -33,7 +34,7 @@ export class ChartComponent implements OnInit {
   public chartLabels1
   datanames
 
-  constructor(private crudService:CrudService,private alertService:AlertService) {
+  constructor(private crudService:CrudService,private alertService:AlertService,private dataStorageService:DatastorageService) {
     
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
@@ -51,7 +52,57 @@ export class ChartComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.alertService.fetchAlerthr();
+
+    
+    var num =this.dataStorageService.noPoints
+    this.lineChartLabels=[];
+    num--;
+    while(num){
+      this.lineChartLabels.push(num+" ago");
+      num--
+    }
+    this.lineChartLabels.push("now")
+    this.dataStorageService.pointsChanged.subscribe((num:number)=>{
+      this.lineChartLabels=[];
+      num--
+      while(num){
+        this.lineChartLabels.push(num+" ago");
+        num--
+      }
+      this.lineChartLabels.push("now")
+    });
+    
     this.crudService.cValuesChanged.subscribe((devices:Device[])=>{
+      var color2=['rgba(255, 235, 59, 0.7)','rgba(0, 188, 212, 0.7) ','rgba(244, 67, 54, 0.7)','rgba(156, 39, 176, 0.7) ','rgba(3, 169, 244, 0.7) ','rgba(0, 150, 136, 0.7)','#9933CC','#eeff41','rgba(3, 169, 244, 0.7) ','rgba(156, 39, 176, 0.7)','rgba(0, 150, 136, 0.7) '];
+      var color1=['rgba(0, 188, 212, 0.7) ','rgba(255, 235, 59, 0.7)','rgba(156, 39, 176, 0.7) ','rgba(0, 150, 136, 0.7) ','rgba(3, 169, 244, 0.7) ','rgba(0, 150, 136, 0.7)','#9933CC','#eeff41','rgba(3, 169, 244, 0.7) ','rgba(156, 39, 176, 0.7)','rgba(244, 67, 54, 0.7)'];
+      for(var i=0;i<devices.length;i++){
+        this.lineChartColors3.push(
+          {
+            borderColor: color1[i],
+            backgroundColor: 'transparent',
+          }
+        );
+        this.lineChartColors4.push(
+          {
+            borderColor: color1[10-i],
+            backgroundColor: 'transparent',
+          }
+        );
+        this.lineChartColors5.push(
+          {
+            borderColor: color2[i],
+            backgroundColor: 'transparent',
+          }
+        );
+        this.lineChartColors6.push(
+          {
+            borderColor: color2[10-i],
+            backgroundColor: 'transparent',
+          }
+        );
+        
+      }
       this.devices=devices
       this.okay=true
       this.chartDatasets0=this.devices.map(item=> {return item.status})
@@ -73,7 +124,9 @@ export class ChartComponent implements OnInit {
       this.data2=this.devices.map(item=> {return item.humidity})
       this.data4=this.devices.map(item=> {return item.solarVoltage})
       this.data3=this.devices.map(item=> {return item.batteryVoltage})
-      var i=0
+
+      
+
       this.lineChartData1= this.data1.map((item)=>{return {data:item.reverse(),label:this.datanames[i++]}})
       var i=0
      
@@ -83,6 +136,7 @@ export class ChartComponent implements OnInit {
       var i=0
       this.lineChartData4= this.data4.map((item)=>{return {data:item.reverse(),label:this.datanames[i++]}})
      
+      
       this.alertArray=this.alertService.findAlerts(devices)
       this.alertArraySize=this.alertArray.length;
       this.countSvNG=0;
@@ -91,7 +145,7 @@ export class ChartComponent implements OnInit {
         if(this.alertArray[i].type=="temperature"){this.countTempNG++}
         else if(this.alertArray[i].type=="solarVoltage"){this.countSvNG++}
       }
-      console.log(this.countTempNG,this.countSvNG,this.alertArraySize)
+      // console.log(this.countTempNG,this.countSvNG,this.alertArraySize)
       this.pieChartData2=[this.countTempNG,(this.devices.length-this.countTempNG)]
       this.pieChartData3=[this.countSvNG,(this.devices.length-this.countSvNG)]
 
@@ -120,7 +174,7 @@ export class ChartComponent implements OnInit {
   public pieChartPlugins = [];
 // ---------------------------------------------------------------------------------------------
 public lineChartData: ChartDataSets[];
-public lineChartLabels: Label[]=['4min ago','3mins ago',"2mins ago","1min ago","now"];
+public lineChartLabels: Label[]=[];
 
 public lineChartColors1: Color[] = [
   {
@@ -134,6 +188,7 @@ public lineChartColors1: Color[] = [
     backgroundColor: 'transparent',
   }
 ];
+
 public lineChartColors2: Color[] = [
   {
     borderColor: 'rgba(156, 39, 176, 0.7) ',
@@ -146,6 +201,11 @@ public lineChartColors2: Color[] = [
     backgroundColor: 'transparent',
   }
 ];
+
+public lineChartColors3: Color[] =[];
+public lineChartColors4: Color[] =[];
+public lineChartColors5: Color[] =[];
+public lineChartColors6: Color[] =[];
 
 public lineChartLegend = true;
 public lineChartType = 'line';
