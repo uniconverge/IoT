@@ -38,8 +38,7 @@ export class AlertService implements OnInit {
   fetchAlerthr(){
     this.http
       .get(
-          'https://alenthankz-iot-api.herokuapp.com/alert'
-          //  'https://localhost:3000/alert'
+            'https://localhost:3000/alert'
           ).subscribe((alerthr:AlerthrModel[])=>{
             this.alerthr=alerthr[0];
           })
@@ -50,8 +49,7 @@ export class AlertService implements OnInit {
   updateAlerthr(alerthr:AlerthrModel){
     this.http
       .patch(
-        'https://alenthankz-iot-api.herokuapp.com/alert/'+this.alerthr._id,
-      //  'https://localhost:3000/alert/'+this.alerthr._id,
+       'https://localhost:3000/alert/'+this.alerthr._id,
       alerthr
       ).subscribe((alert:AlerthrModel)=>{
         this.alerthr=alert;

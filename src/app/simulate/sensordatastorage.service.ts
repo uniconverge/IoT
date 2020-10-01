@@ -19,14 +19,12 @@ export class SensordatastorageService {
     }
   fetchSensors(){
     return this.http.get(
-        'https://alenthankz-iot-api.herokuapp.com/sensors'
-        // 'http://localhost:3000/sensors'
+         'http://localhost:3000/sensors'
       )
     }
   fetchSensorOne(deviceid:string){
     return this.http.get(
-         'https://alenthankz-iot-api.herokuapp.com/sensors/'+deviceid
-        // 'http://localhost:3000/sensors/'+deviceid
+         'http://localhost:3000/sensors/'+deviceid
       )
     }
 }

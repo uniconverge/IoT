@@ -14,8 +14,8 @@ export class DatastorageService {
   getnoPoints() {
      this.http
       .get(
-         'https://alenthankz-iot-api.herokuapp.com/nopoints',
-        //  'https://localhost:3000/nopoints',
+        
+         'https://localhost:3000/nopoints',
          
       ).subscribe((noPoints:Object)=>{
         this.noPoints=noPoints["value"];
@@ -26,8 +26,7 @@ export class DatastorageService {
   updatenoPoints(no:number) {
      this.http
      .patch(
-       'https://alenthankz-iot-api.herokuapp.com/nopoints/'+no,
-        //  'https://localhost:3000/nopoints/'+no,
+         'https://localhost:3000/nopoints/'+no,
        {value:no}
       ).subscribe((noPoints:Object)=>{
         this.noPoints=noPoints["value"];
@@ -37,46 +36,40 @@ export class DatastorageService {
   storeDevice(device:Device) {
     return this.http
       .post(
-         'https://alenthankz-iot-api.herokuapp.com/devices',
-        //  'https://localhost:3000/devices',
+          'https://localhost:3000/devices',
           device
       )
 
   }
   fetchLatestDevice(){
     return this.http.get(
-       'https://alenthankz-iot-api.herokuapp.com/device'
-      // 'https://localhost:3000/device'
+       'https://localhost:3000/device'
     )
   }
   fetchDevices(){
     console.log(this.noPoints)
     return this.http.get(
-         'https://alenthankz-iot-api.herokuapp.com/devices?number='+this.noPoints
-        // 'http://localhost:3000/devices?number=' +this.noPoints
+         'http://localhost:3000/devices?number=' +this.noPoints
     )
   }
 
   fetchDevice(_id:string){
     return this.http.get(
-       'https://alenthankz-iot-api.herokuapp.com/devices/'+_id
-      //  'https://localhost:3000/devices/'+_id
+        'https://localhost:3000/devices/'+_id
     )
   }
 
   updateDevice(id:string,device:Device){
      return this.http
      .patch(
-       'https://alenthankz-iot-api.herokuapp.com/devices/'+id,
-      //  'https://localhost:3000/devices/'+id,
+        'https://localhost:3000/devices/'+id,
       device)
   }
 
   deleteDevice(_id:string){
     return this.http
     .delete(
-       'https://alenthankz-iot-api.herokuapp.com/devices/'+_id
-        // 'https://localhost:3000/devices/'+_id
+         'https://localhost:3000/devices/'+_id
     )
       
   }
