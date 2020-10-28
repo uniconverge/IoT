@@ -1,0 +1,18 @@
+<app-navbar heading="Settings"></app-navbar>
+<mdb-card style="height: 600px;margin-left: 20px;margin-right: 20px;margin-top: 10px;">
+    <mdb-card-body>
+        <app-loading-spinner *ngIf="!okay"></app-loading-spinner>
+        <div *ngIf="okay" class="row" >
+            <form [formGroup]="pointForm" (ngSubmit)="onSubmit()" class="text-center form-inline" style="color: #757575;font-size: 13px;">
+                <label style="margin-left: 10px;" class="my-1 mr-2" for="inlineFormCustomSelectPref">Data points per min :</label>
+                <input type="number"
+                class="form-control"
+                formControlName="value"
+                >
+                <button style="margin-left: 10px; margin-top: 5px;" type="submit" class="btn btn-primary my-1">Submit</button>
+        
+            </form>
+        </div>
+    </mdb-card-body>
+</mdb-card>
+

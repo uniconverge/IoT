@@ -13,18 +13,18 @@ export class SensordatastorageService {
   updateSensor(deviceid:string,sensor:Sensor){
     return this.http
     .patch(
-      'https://alenthankz-iot-api.herokuapp.com/sensors/'+deviceid,
+      'https://uniconvergetech-iot-dashbord.herokuapp.com/sensors/'+deviceid,
       // 'https://localhost:3000/sensors/'+deviceid,
      sensor)
     }
   fetchSensors(){
     return this.http.get(
-         'http://localhost:3000/sensors'
+         'https://uniconvergetech-iot-dashbord.herokuapp.com/sensors'
       )
     }
   fetchSensorOne(deviceid:string){
     return this.http.get(
-         'http://localhost:3000/sensors/'+deviceid
+         'https://uniconvergetech-iot-dashbord.herokuapp.com/sensors/'+deviceid
       )
     }
 }

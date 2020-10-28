@@ -33,6 +33,7 @@ import { AlertDispComponent } from './alert-disp/alert-disp.component';
 import { SimulateComponent } from './simulate/simulate.component';
 import { EachDeviceComponent } from './simulate/each-device/each-device.component';
 import { AuthComponent } from './auth/auth.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AuthComponent } from './auth/auth.component';
     SimulateComponent,
     EachDeviceComponent,
     AuthComponent,
+    SettingsComponent,
   ],
   imports: [
     ChartsModule,

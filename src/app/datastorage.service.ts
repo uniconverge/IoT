@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 })
 export class DatastorageService {
   noPoints:number;
+  timer:number=1;
   pointsChanged=new Subject<number>();
+  timerChanged=new Subject<number>();
   constructor(private http:HttpClient) { }
 
 
@@ -15,7 +17,7 @@ export class DatastorageService {
      this.http
       .get(
         
-         'https://localhost:3000/nopoints',
+         'https://uniconvergetech-iot-dashbord.herokuapp.com/nopoints',
          
       ).subscribe((noPoints:Object)=>{
         this.noPoints=noPoints["value"];
@@ -26,53 +28,63 @@ export class DatastorageService {
   updatenoPoints(no:number) {
      this.http
      .patch(
-         'https://localhost:3000/nopoints/'+no,
+         'https://uniconvergetech-iot-dashbord.herokuapp.com/nopoints/'+no,
        {value:no}
       ).subscribe((noPoints:Object)=>{
         this.noPoints=noPoints["value"];
         this.pointsChanged.next(this.noPoints);
       })
   }
+  updateTimer(no:number) {
+    this.timer=no;
+    this.timerChanged.next(this.timer);
+  }
   storeDevice(device:Device) {
     return this.http
       .post(
-          'https://localhost:3000/devices',
+          'https://uniconvergetech-iot-dashbord.herokuapp.com/devices',
           device
       )
 
   }
   fetchLatestDevice(){
     return this.http.get(
-       'https://localhost:3000/device'
+       'https://uniconvergetech-iot-dashbord.herokuapp.com/device'
     )
   }
   fetchDevices(){
-    console.log(this.noPoints)
+    // console.log(this.noPoints)
     return this.http.get(
-         'http://localhost:3000/devices?number=' +this.noPoints
+         'https://uniconvergetech-iot-dashbord.herokuapp.com/devices' 
     )
   }
 
   fetchDevice(_id:string){
     return this.http.get(
-        'https://localhost:3000/devices/'+_id
+        'https://uniconvergetech-iot-dashbord.herokuapp.com/devices/'+_id
     )
   }
 
   updateDevice(id:string,device:Device){
      return this.http
      .patch(
-        'https://localhost:3000/devices/'+id,
+        'https://uniconvergetech-iot-dashbord.herokuapp.com/devices/'+id,
       device)
   }
 
   deleteDevice(_id:string){
     return this.http
     .delete(
-         'https://localhost:3000/devices/'+_id
+         'https://uniconvergetech-iot-dashbord.herokuapp.com/devices/'+_id
     )
       
   }
 
+  download(){
+    this.http
+    .get(
+      'https://uniconvergetech-iot-dashbord.herokuapp.com/download'
+     ).subscribe();
+  }
 
 }

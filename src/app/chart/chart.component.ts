@@ -126,7 +126,7 @@ export class ChartComponent implements OnInit {
       this.data3=this.devices.map(item=> {return item.batteryVoltage})
 
       
-
+      var i=0
       this.lineChartData1= this.data1.map((item)=>{return {data:item.reverse(),label:this.datanames[i++]}})
       var i=0
      

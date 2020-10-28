@@ -16,6 +16,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AlertDispComponent } from './alert-disp/alert-disp.component';
 import { SimulateComponent } from './simulate/simulate.component';
 import { AuthComponent } from './auth/auth.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const appRoutes: Routes = [
     {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
  {path:'alert',component:AlertDispComponent},
  {path:'sensors',component:SimulateComponent},
  {path:'auth',component:AuthComponent},
+ {path:'settings',component:SettingsComponent},
  {path:'error-page',component:ErrorPageComponent},
 ];
 

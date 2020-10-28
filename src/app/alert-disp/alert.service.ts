@@ -38,7 +38,7 @@ export class AlertService implements OnInit {
   fetchAlerthr(){
     this.http
       .get(
-            'https://localhost:3000/alert'
+            'https://uniconvergetech-iot-dashbord.herokuapp.com/alert'
           ).subscribe((alerthr:AlerthrModel[])=>{
             this.alerthr=alerthr[0];
           })
@@ -49,7 +49,7 @@ export class AlertService implements OnInit {
   updateAlerthr(alerthr:AlerthrModel){
     this.http
       .patch(
-       'https://localhost:3000/alert/'+this.alerthr._id,
+       'https://uniconvergetech-iot-dashbord.herokuapp.com/alert/'+this.alerthr._id,
       alerthr
       ).subscribe((alert:AlerthrModel)=>{
         this.alerthr=alert;

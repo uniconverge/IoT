@@ -2,6 +2,7 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CrudService } from '../crud.service';
 import { Device } from '../crud.model';
+import { DatastorageService } from '../datastorage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import { Device } from '../crud.model';
 export class NavbarComponent implements OnInit {
   @Input() heading:string;
 
-  constructor(private router:Router,private route:ActivatedRoute,private crudService:CrudService) { }
+  constructor(private router:Router,private route:ActivatedRoute,private crudService:CrudService,private dataStorageService:DatastorageService) { }
 
   innerWidth:number
   @HostListener('window:resize', ['$event'])
@@ -22,9 +23,7 @@ export class NavbarComponent implements OnInit {
     console.log('inside nav')
     this.innerWidth=window.innerWidth;
   }
-  onLogOut(){
-    
-  }
+ 
   onHome(){
     this.router.navigate(['/home'])  
   }
@@ -33,6 +32,9 @@ export class NavbarComponent implements OnInit {
   }
   onRegistry(){
     this.router.navigate(['/registry']) 
+  }
+  onSettings(){
+    this.router.navigate(['/settings']) 
   }
   onSensor(){
     this.router.navigate(['/sensors']) 
